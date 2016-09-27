@@ -1,5 +1,6 @@
 package com.miguelcr.basics;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,7 +19,12 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    public void onClickHome(View view) {
-        Log.i("INFO METODO","Ha hecho click en Ir a home");
+    public void onClickLogin(View view) {
+        Log.i("EVENTO","Click en botón login >>> onClickLogin");
+
+        Intent i = new Intent(LoginActivity.this,MainActivity.class);
+        startActivity(i);
+
+
     }
 }
