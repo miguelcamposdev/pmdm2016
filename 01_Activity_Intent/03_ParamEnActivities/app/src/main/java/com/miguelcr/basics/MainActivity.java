@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         String apellidos = parametros.getString(Constantes.EXTRA_APELLIDOS);
 
         int jubilacion = 67-edadUsuario;
-        
+
         textViewNombre.setText(usuario);
         textViewApellidos.setText(apellidos);
         textViewEdad.setText("Años para jubilarte "+String.valueOf(jubilacion));
