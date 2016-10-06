@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">05_Intent_implicito</string>
+    <string name="call_phone">Llamar por teléfono</string>
+    <string name="hint_phone_number">Escriba un teléfono</string>
+</resources>

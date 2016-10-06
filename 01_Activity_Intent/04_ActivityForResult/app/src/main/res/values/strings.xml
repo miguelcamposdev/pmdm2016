@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">04_ActivityForResult</string>
+    <string name="taking_photo">Haciendo foto...</string>
+    <string name="btn_hacer_foto">Ir a cámara</string>
+    <string name="btn_buscar_mapa">Buscar en mapa</string>
+</resources>
