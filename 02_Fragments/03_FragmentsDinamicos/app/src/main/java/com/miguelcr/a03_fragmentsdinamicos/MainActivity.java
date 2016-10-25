@@ -1,13 +1,16 @@
 package com.miguelcr.a03_fragmentsdinamicos;
 
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 
 import com.miguelcr.a03_fragmentsdinamicos.fragments.DetalleUsuarioFragment;
 import com.miguelcr.a03_fragmentsdinamicos.fragments.MenuUsuariosFragment;
 
 public class MainActivity extends AppCompatActivity {
+    Fragment f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,10 +21,12 @@ public class MainActivity extends AppCompatActivity {
         // Con la siguiente línea de código vamos a cargar
         // en el FrameLayout cuyo id es R.id.container
         // el Fragment > MenuUsuariosFragment
+
+        f = new MenuUsuariosFragment();
         getSupportFragmentManager().beginTransaction()
                 .add(
                         R.id.container,
-                        new MenuUsuariosFragment()
+                        f
                 ).commit();
     }
 
@@ -31,10 +36,17 @@ public class MainActivity extends AppCompatActivity {
         // "replace", en lugar de "add"
         // y en el 2º parámetro le pasamos una instancia del Fragment
         // que queremos visualizar.
+
+        if(f instanceof DetalleUsuarioFragment) {
+            f = new MenuUsuariosFragment();
+        } else if(f instanceof MenuUsuariosFragment) {
+            f = new DetalleUsuarioFragment();
+        }
+
         getSupportFragmentManager().beginTransaction()
                 .replace(
                         R.id.container,
-                        new DetalleUsuarioFragment()
+                        f
                 ).commit();
     }
 }
