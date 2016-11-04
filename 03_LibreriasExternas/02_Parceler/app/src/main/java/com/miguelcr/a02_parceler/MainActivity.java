@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import org.parceler.Parcels;
+
 public class MainActivity extends AppCompatActivity {
     Alumno alumno;
 
@@ -19,6 +21,11 @@ public class MainActivity extends AppCompatActivity {
     public void enviarDatos(View view) {
         Intent i = new Intent(this, DetalleActivity.class);
         //TODO: i.putExtra...
+
+        // Si no utiliza
+        //i.putExtra("nombre",alumno.getNombre());
+        //i.putExtra("edad",alumno.getEdad());
+        i.putExtra("alumno", Parcels.wrap(alumno));
         startActivity(i);
     }
 }

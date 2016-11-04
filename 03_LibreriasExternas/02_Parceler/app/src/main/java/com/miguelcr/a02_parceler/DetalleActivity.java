@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import org.parceler.Parcels;
+
 public class DetalleActivity extends AppCompatActivity {
     TextView textViewNombre, textViewEdad;
 
@@ -15,9 +17,10 @@ public class DetalleActivity extends AppCompatActivity {
         textViewNombre = (TextView) findViewById(R.id.text_view_nombre);
         textViewEdad = (TextView) findViewById(R.id.text_view_edad);
 
-        Bundle extras = getIntent().getExtras();
+        Alumno alumno = (Alumno) Parcels.unwrap(getIntent().getParcelableExtra("alumno"));
 
-        //TODO
+        textViewNombre.setText(alumno.getNombre());
+        textViewEdad.setText(alumno.getEdad());
 
     }
 }
