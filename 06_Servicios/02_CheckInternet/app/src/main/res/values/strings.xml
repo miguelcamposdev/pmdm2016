@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">02_CheckInternet</string>
+    <string name="if_conection">Conexión a Internet</string>
+    <string name="activation_internet">No tiene Internet, necesitamos que lo active para que la aplicación pueda funcionar</string>
+    <string name="yes">Activar internet</string>
+    <string name="cancel">Cancelar</string>
+</resources>
