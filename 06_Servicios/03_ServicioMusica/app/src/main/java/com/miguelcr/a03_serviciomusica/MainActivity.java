@@ -7,6 +7,7 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
     Intent i;
+    boolean isPlaying = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,8 +18,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void reproducirCancion(View view) {
 
+
         //TODO: pasar una URL de una canción de Internet en mp3
-        i.putExtra("urlCancion","");
+        i.putExtra("urlCancion","http://dl.mp3xd.eu/xd/4JmrOWpke5qk9coU+aapSqmtmm5/Justin+bieber+what+do+you+mean.mp3");
         startService(i);
     }
 }

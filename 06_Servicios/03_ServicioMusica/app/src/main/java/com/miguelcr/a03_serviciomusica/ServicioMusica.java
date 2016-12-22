@@ -6,6 +6,7 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.util.Log;
 
 import java.io.IOException;
 
@@ -26,9 +27,10 @@ public class ServicioMusica extends Service {
         super.onStartCommand(intent, flags, startId);
 
         Bundle extras = intent.getExtras();
-        extras.getString("urlCancion");
+        String cancion = extras.getString("urlCancion");
+        Log.i("***CANCION***","*** Reproduciendo: "+cancion);
 
-        reproductorMusica = MediaPlayer.create(this, Uri.parse(""));
+        reproductorMusica = MediaPlayer.create(this, Uri.parse(cancion));
         try {
             reproductorMusica.prepare();
         } catch (IOException e) {
@@ -38,5 +40,14 @@ public class ServicioMusica extends Service {
         reproductorMusica.start();
 
         return START_REDELIVER_INTENT;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        reproductorMusica.stop();
+        reproductorMusica.release();
+
     }
 }
