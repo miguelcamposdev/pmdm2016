@@ -33,10 +33,16 @@ public class ServicioMusica extends Service {
 
         reproductorMusica = MediaPlayer.create(this, Uri.parse(cancion));
 
-        reproductorMusica.start();
-        if(tiempo!=0) {
-            reproductorMusica.seekTo(tiempo);
+        if(reproductorMusica.isPlaying()) {
+            reproductorMusica.pause();
+        } else {
+            if(tiempo!=0) {
+                reproductorMusica.seekTo(tiempo);
+            }
         }
+
+        reproductorMusica.start();
+
 
         return START_REDELIVER_INTENT;
     }

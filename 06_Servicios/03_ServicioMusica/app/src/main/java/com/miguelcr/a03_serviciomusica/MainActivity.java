@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         if(musicPlayerView.isRotating()) {
-            stopService(i);
+            startService(i);
             pausado = true;
             // La siguiente línea de código para la rotación de la carátula
             musicPlayerView.stop();
@@ -42,5 +42,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startService(i);
         }
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        stopService(i);
     }
 }
