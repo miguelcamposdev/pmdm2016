@@ -31,11 +31,6 @@ public class ServicioMusica extends Service {
         Log.i("***CANCION***","*** Reproduciendo: "+cancion);
 
         reproductorMusica = MediaPlayer.create(this, Uri.parse(cancion));
-        try {
-            reproductorMusica.prepare();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
         reproductorMusica.start();
 
