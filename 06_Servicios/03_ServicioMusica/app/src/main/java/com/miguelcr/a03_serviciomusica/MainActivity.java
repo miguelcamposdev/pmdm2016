@@ -10,6 +10,7 @@ import co.mobiwise.library.MusicPlayerView;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Intent i;
     MusicPlayerView musicPlayerView;
+    boolean pausado = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +29,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         if(musicPlayerView.isRotating()) {
             stopService(i);
-
+            pausado = true;
             // La siguiente línea de código para la rotación de la carátula
             musicPlayerView.stop();
         } else {
             musicPlayerView.start();
+            if(pausado) {
+                i.putExtra("tiempo",musicPlayerView.getProgress());
+            }
             //TODO: pasar una URL de una canción de Internet en mp3
             i.putExtra("urlCancion", "http://dl.mp3xd.eu/xd/4JmrOWpke5qk9coU+aapSqmtmm5/Justin+bieber+what+do+you+mean.mp3");
             startService(i);

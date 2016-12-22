@@ -28,11 +28,15 @@ public class ServicioMusica extends Service {
 
         Bundle extras = intent.getExtras();
         String cancion = extras.getString("urlCancion");
+        int tiempo = extras.getInt("tiempo",0);
         Log.i("***CANCION***","*** Reproduciendo: "+cancion);
 
         reproductorMusica = MediaPlayer.create(this, Uri.parse(cancion));
 
         reproductorMusica.start();
+        if(tiempo!=0) {
+            reproductorMusica.seekTo(tiempo);
+        }
 
         return START_REDELIVER_INTENT;
     }
