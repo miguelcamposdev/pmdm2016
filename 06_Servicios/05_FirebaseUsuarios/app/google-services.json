@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "299456074987",
+    "firebase_url": "https://skilful-deck-844.firebaseio.com",
+    "project_id": "skilful-deck-844",
+    "storage_bucket": "skilful-deck-844.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:299456074987:android:1a6f6d06133bba5f",
+        "android_client_info": {
+          "package_name": "com.miguelcr.firebaseusuarios"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "299456074987-br5hr3b16m235q0q1dpgsacromjkbl4c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.miguelcr.firebaseusuarios",
+            "certificate_hash": "3C4366044502134A0960780E599D73EE939FE3E5"
+          }
+        },
+        {
+          "client_id": "299456074987-2hrvu50fl5r980grlh74ndikf1752m58.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC27DTRotaj-ii-VcOftB7S2wo3rAfemUk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "299456074987-2hrvu50fl5r980grlh74ndikf1752m58.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
