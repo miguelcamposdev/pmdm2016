@@ -57,11 +57,8 @@ class DbOperation
 
     //getting a specified token to send push to selected device
     public function getTokenByEmail($email){
-        $stmt = $this->con->prepare("SELECT token FROM devices WHERE email = ?");
-        $stmt->bind_param("s",$email);
-        $stmt->execute();
-        $result = $stmt->get_result()->fetch_assoc();
-        return array($result['token']);
+        $res = $this->con->query("SELECT token FROM devices WHERE email = '".$email."'");
+        return $res;
     }
 
     //getting all the registered devices from database
