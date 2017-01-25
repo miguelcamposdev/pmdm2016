@@ -1,25 +1,25 @@
-<?php
+<?php 
 	require_once 'DbOperation.php';
-	$response = array();
+	$response = array(); 
 
 	if($_SERVER['REQUEST_METHOD']=='POST'){
 
 		$token = $_POST['token'];
 		$email = $_POST['email'];
 
-		$db = new DbOperation();
+		$db = new DbOperation(); 
 
 		$result = $db->registerDevice($email,$token);
 
 		if($result == 0){
-			$response['error'] = false;
+			$response['error'] = false; 
 			$response['message'] = 'Device registered successfully';
 		}elseif($result == 2){
-			$response['error'] = true;
+			$response['error'] = true; 
 			$response['message'] = 'Device already registered';
 		}else{
 			$response['error'] = true;
-			$response['message']='Device not registered '.$email.','.$token;
+			$response['message']='Device not registered';
 		}
 	}else{
 		$response['error']=true;
