@@ -3,6 +3,8 @@
     package="com.miguelcr.firebase">
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"></uses-permission>
 
     <application
         android:allowBackup="true"

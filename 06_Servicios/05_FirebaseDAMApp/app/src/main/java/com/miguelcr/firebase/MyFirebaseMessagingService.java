@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
@@ -21,6 +22,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
+        Log.i("FCM", "Mensaje recibido: "+remoteMessage.getNotification().getTitle()+": "+remoteMessage.getNotification().getBody());
 
         enviarNotificacion(remoteMessage.getNotification().getBody());
     }
