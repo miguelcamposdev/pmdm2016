@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.miguelcr.app.localdb.Airline;
+import com.miguelcr.app.localdb.AirlineDao;
 import com.miguelcr.app.localdb.OnAirlineListListener;
 
 import java.util.List;
@@ -65,6 +66,42 @@ public class AirlineFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
+
+            AirlineDao airlineDao = DatabaseConnection.getAirlineDao(getActivity());
+
+            // INSERT INTO
+            Airline nuevaAerolinea = new Airline();
+            nuevaAerolinea.setCodigo("RYA");
+            nuevaAerolinea.setNombre("Ryanair");
+            nuevaAerolinea.setUrlLogo("");
+            airlineDao.insert(nuevaAerolinea);
+
+
+            // SELECT * FROM Airline
+            airlineList = airlineDao.loadAll();
+
+
+
+            // SELECT * FROM Airline WHERE id=1 LIMIT 1
+            // Devolviendo una única fila
+            /*
+            Airline airline = airlineDao.queryBuilder()
+                    .where(AirlineDao.Properties.Id.eq(1),
+                            AirlineDao.Properties.Nombre.eq(""))
+                    .orderAsc(AirlineDao.Properties.Nombre)
+                    .unique();
+            */
+
+
+            // SELECT * FROM Airline WHERE id=1
+            // Devolvería una lista de Airlines
+            /*
+            List<Airline> airlines = airlineDao.queryBuilder()
+                    .where(AirlineDao.Properties.Id.eq(1),
+                            AirlineDao.Properties.Nombre.eq(""))
+                    .orderAsc(AirlineDao.Properties.Nombre)
+                    .list();
+                    */
 
             adapter = new MyAirlineRecyclerViewAdapter(airlineList, mListener);
             recyclerView.setAdapter(adapter);

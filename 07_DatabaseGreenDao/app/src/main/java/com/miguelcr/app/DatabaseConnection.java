@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.miguelcr.app.localdb.AirlineDao;
 import com.miguelcr.app.localdb.DaoMaster;
 import com.miguelcr.app.localdb.DaoSession;
+import com.miguelcr.app.localdb.VueloDao;
 
 
 public class DatabaseConnection {
@@ -25,6 +26,11 @@ public class DatabaseConnection {
     public static AirlineDao getAirlineDao (Context ctx) {
         DaoSession daoSession = DatabaseConnection.getConnection(ctx);
         return daoSession.getAirlineDao();
+    }
+
+    public static VueloDao getVueloDao (Context ctx) {
+        DaoSession daoSession = DatabaseConnection.getConnection(ctx);
+        return daoSession.getVueloDao();
     }
 
 }
